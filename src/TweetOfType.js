@@ -4,13 +4,14 @@ module.exports = {
 
 var epoch = Date.parse('January 1, 2014');
 var async = require('async');
-
+var fs = require('fs');
 var Twit = require('twit');
-
+var file = fs.readFileSync('./secret.json').toString();
+var secret = JSON.parse(file);
 var T = new Twit({
-    consumer_key:         '8yI0Ql2ByrsypQjpS28ncSsny'
-  , consumer_secret:      'VytosU2zBVOpTvdwOIjEEBUKF1yBbqWwiZAvvZWMLEvbT8Jtxe'
-  , app_only_auth:        true
+    consumer_key:         secret.consumer_key
+  , consumer_secret:      secret.consumer_secret
+  , app_only_auth:        secret.app_only_auth
 });
 
 

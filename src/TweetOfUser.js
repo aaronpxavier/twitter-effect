@@ -4,14 +4,15 @@ module.exports = {
 
 var epoch = Date.parse('January 1, 2014');
 var async = require('async');
-
+var fs = require('fs');
 var Twit = require('twit');
-
+var file = fs.readFileSync('./secret.json').toString();
+var secret = JSON.parse(file);
 var T = new Twit({
-    consumer_key:         '8yI0Ql2ByrsypQjpS28ncSsny'
-  , consumer_secret:      'VytosU2zBVOpTvdwOIjEEBUKF1yBbqWwiZAvvZWMLEvbT8Jtxe'
-  , access_token:         '32861813-6ybL6VCCr1r7RwTDMrNfLbP1ax0E5HVf5jAMX4qGp'
-  , access_token_secret:  'f0Lb1FyKGnVCHTzFAHbTXJo7w2shwX87frPy7xdvKGCNo'
+    consumer_key:         secret.consumer_key
+  , consumer_secret:      secret.consumer_secret
+  , access_token:         secret.access_token
+  , access_token_secret:  secret.access_token_secret
 });
 
 var swearjar = require('swearjar');
