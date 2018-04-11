@@ -1,18 +1,19 @@
+
 module.exports = {
     getData : getData
 };
-
+console.log('tweet of user')
+import config from './cfg';
 var epoch = Date.parse('January 1, 2014');
 var async = require('async');
 var fs = require('fs');
 var Twit = require('twit');
-var file = fs.readFileSync('./secret.json').toString();
-var secret = JSON.parse(file);
+
 var T = new Twit({
-    consumer_key:         secret.consumer_key
-  , consumer_secret:      secret.consumer_secret
-  , access_token:         secret.access_token
-  , access_token_secret:  secret.access_token_secret
+    consumer_key:         config.consumer_key
+  , consumer_secret:      config.consumer_secret
+  , access_token:         config.access_token
+  , access_token_secret:  config.access_token_secret
 });
 
 var swearjar = require('swearjar');
